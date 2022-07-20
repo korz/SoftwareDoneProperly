@@ -11,7 +11,7 @@ namespace Domain
         {
             DatabaseRepository.TruncateCustomers();
 
-            //Notice how we sepated orchestration from logic
+            //Notice how we separated orchestration from logic
 
             var customers = new List<Customer>();
             var loadedCustomers = new List<Customer>();

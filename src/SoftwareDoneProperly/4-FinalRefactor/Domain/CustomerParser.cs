@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
-using Contracts;
+using Contracts.Interfaces;
+using Contracts.Models;
 
 namespace Domain
 {
-    public static class CustomerParser
+    public class CustomerParser : ICustomerParser
     {
-        public static List<Customer> Parse(List<Customer> customers)
+        public List<Customer> Parse(List<Customer> customers)
         {
             foreach (var customer in customers)
             {
-                CustomerParser.Parse(customer);
+                this.Parse(customer);
             }
 
             return customers;
         }
 
-        public static Customer Parse(Customer customer)
+        public Customer Parse(Customer customer)
         {
             customer.WorkPhone = PhoneNumberParser.Parse(customer.WorkPhone);
             customer.CellPhone = PhoneNumberParser.Parse(customer.CellPhone);

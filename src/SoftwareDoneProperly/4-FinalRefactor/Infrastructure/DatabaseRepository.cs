@@ -1,19 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Contracts;
+using Contracts.Interfaces;
+using Contracts.Models;
 using Dapper;
 using SharedDapper;
 
 namespace Infrastructure
 {
-    public static class DatabaseRepository
+    public class DatabaseRepository : IDatabaseRepository
     {
-        public static async Task TruncateCustomers()
+        public async Task TruncateCustomers()
         {
             await DatabaseConnection.ExecuteAsync(@"TRUNCATE TABLE [Customer]");
         }
 
-        public static async Task Insert(IList<Customer> customers)
+        public async Task Insert(IList<Customer> customers)
         {
             using (var connection = new DatabaseConnection())
             {
@@ -41,7 +42,7 @@ namespace Infrastructure
             }
         }
 
-        public static async Task<IList<Customer>> FetchAll()
+        public async Task<IList<Customer>> FetchAll()
         {
             return await DatabaseConnection.QueryAsync<Customer>(@"SELECT * FROM Customer");
 
