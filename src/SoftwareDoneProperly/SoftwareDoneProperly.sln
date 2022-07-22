@@ -41,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Tests", "4-FinalRefa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "3-SecondRefactor\Domain\Domain.csproj", "{128244E6-7A62-4A78-9EAE-A8FB0B6151E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Tests", "4-FinalRefactor\Infrastructure.Tests\Infrastructure.Tests.csproj", "{AAC060C9-DC4B-4905-89B6-D48349215750}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{128244E6-7A62-4A78-9EAE-A8FB0B6151E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{128244E6-7A62-4A78-9EAE-A8FB0B6151E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{128244E6-7A62-4A78-9EAE-A8FB0B6151E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC060C9-DC4B-4905-89B6-D48349215750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC060C9-DC4B-4905-89B6-D48349215750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC060C9-DC4B-4905-89B6-D48349215750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC060C9-DC4B-4905-89B6-D48349215750}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,6 +128,7 @@ Global
 		{DE98C797-E4A6-4FF4-BED4-778F232C95FE} = {F8FDE333-694B-4211-87B6-8C9754D334C1}
 		{8966344F-5047-4BBE-8A36-917DCA85B3D4} = {F8FDE333-694B-4211-87B6-8C9754D334C1}
 		{128244E6-7A62-4A78-9EAE-A8FB0B6151E5} = {39374DCD-9705-46C1-A518-78150B8B231F}
+		{AAC060C9-DC4B-4905-89B6-D48349215750} = {F8FDE333-694B-4211-87B6-8C9754D334C1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C79A7B1A-F271-47CE-8F23-0B6C40578C5D}
