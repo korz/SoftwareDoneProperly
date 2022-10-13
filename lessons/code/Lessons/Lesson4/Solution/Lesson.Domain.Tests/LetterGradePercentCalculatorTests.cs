@@ -24,7 +24,7 @@ namespace Lesson.Domain.Tests
         [TestCase("G", 0)]
         public void Calculate(string letterGrade, int expectedPercentage)
         {
-            var calculated = LetterGradePercentCalculator.Calculate(letterGrade);
+            var calculated = new LetterGradePercentCalculator().Calculate(letterGrade);
 
             Assert.AreEqual(expectedPercentage, calculated);
         }
