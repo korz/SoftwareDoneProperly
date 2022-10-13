@@ -34,13 +34,77 @@ namespace SoftwareDoneProperly.Console
         {
             var customers = new List<Customer>();
             var loadedCustomers = new List<Customer>();
+            customers = LoadCustomer();
+            TransformCustomers(customers);
 
-            using (var reader = new StreamReader(@"CustomersToImport.csv"))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+
+
+
+            var connectionString = @"Server=.\SQLEXPRESS;Database=SoftwareDoneProperly;Trusted_Connection=True;";
+            SaveCustomers(loadedCustomers, connectionString);
+            List<Customer> savedCustomers = LoadSavedCustomers(connectionString);
+
+            savedCustomers.ForEach(System.Console.WriteLine);
+        }
+
+        private static List<Customer> LoadSavedCustomers(string connectionString)
+        {
+            var savedCustomers = new List<Customer>();
+
+            using (var connection = new SqlConnection(connectionString))
             {
-                customers = csv.GetRecords<Customer>().ToList();
+                var sql = "SELECT * FROM Customer";
+
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                savedCustomers = connection.Query<Customer>(sql).ToList();
+
+                connection.Close();
             }
 
+            return savedCustomers;
+        }
+
+        private static void SaveCustomers(List<Customer> loadedCustomers, string connectionString)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                foreach (var customer in loadedCustomers)
+                {
+                    var sql = @"INSERT INTO Customer(FirstName, LastName, Birthdate, Company, Title, WorkPhone, CellPhone, Email, Inactive)
+                                VALUES(@FirstName, @LastName, @Birthdate, @Company, @Title, @WorkPhone, @CellPhone, @Email,@Inactive)
+                                SELECT CAST(SCOPE_IDENTITY() as int)";
+
+                    var parameters = new
+                    {
+                        customer.FirstName,
+                        customer.LastName,
+                        customer.Birthdate,
+                        customer.Company,
+                        customer.Title,
+                        customer.WorkPhone,
+                        customer.CellPhone,
+                        customer.Email,
+                        customer.Inactive
+                    };
+
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+
+                    var customerId = connection.QuerySingle<int>(sql, parameters);
+
+                    connection.Close();
+                }
+            }
+        }
+
+        private static void TransformCustomers(List<Customer> customers)
+        {
             foreach (var customer in customers)
             {
                 var workPhoneParts = customer.WorkPhone.Split(' ');
@@ -144,70 +208,18 @@ namespace SoftwareDoneProperly.Console
 
                 customer.Title = customer.Title.ToUpper().Trim() == "UNKNOWN" ? "SCRUM MASTER" : customer.Title.ToUpper().Trim();
             }
+        }
 
-            using (var writer = new StreamWriter(@"CustomersToImport-Clean.csv"))
-            using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csvWriter.WriteRecords(customers);
-            }
-
-            using (var reader = new StreamReader(@"CustomersToImport-Clean.csv"))
+        private static List<Customer> LoadCustomer()
+        {
+            List<Customer> customers;
+            using (var reader = new StreamReader(@"CustomersToImport.csv"))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
-                loadedCustomers = csv.GetRecords<Customer>().ToList();
+                customers = csv.GetRecords<Customer>().ToList();
             }
 
-            var connectionString = @"Server=.\SQLEXPRESS;Database=SoftwareDoneProperly;Trusted_Connection=True;";
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                foreach (var customer in loadedCustomers)
-                {
-                    var sql = @"INSERT INTO Customer(FirstName, LastName, Birthdate, Company, Title, WorkPhone, CellPhone, Email, Inactive)
-                                VALUES(@FirstName, @LastName, @Birthdate, @Company, @Title, @WorkPhone, @CellPhone, @Email,@Inactive)
-                                SELECT CAST(SCOPE_IDENTITY() as int)";
-
-                    var parameters = new
-                    {
-                        customer.FirstName,
-                        customer.LastName,
-                        customer.Birthdate,
-                        customer.Company,
-                        customer.Title,
-                        customer.WorkPhone,
-                        customer.CellPhone,
-                        customer.Email,
-                        customer.Inactive
-                    };
-
-                    if (connection.State != ConnectionState.Open)
-                    {
-                        connection.Open();
-                    }
-
-                    var customerId = connection.QuerySingle<int>(sql, parameters);
-
-                    connection.Close();
-                }
-            }
-
-            var savedCustomers = new List<Customer>();
-
-            using (var connection = new SqlConnection(connectionString))
-            {
-                var sql = "SELECT * FROM Customer";
-
-                if (connection.State != ConnectionState.Open)
-                {
-                    connection.Open();
-                }
-
-                savedCustomers = connection.Query<Customer>(sql).ToList();
-
-                connection.Close();
-            }
-
-            savedCustomers.ForEach(System.Console.WriteLine);
+            return customers;
         }
 
         public class Customer
