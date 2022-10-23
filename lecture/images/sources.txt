@@ -1,0 +1,54 @@
+Image Sources
+	Creator’s Last Name, First Name. Image Title. Year Created. Website Name, Numbers (if applicable), URL.
+
+	Caution Sign.png
+		Korzynski, Brian. Caution Sign. 2022. GitHub, URL.	
+	
+	Watch Face.png
+		Constantin, Vacheron. Traditionnelle Tourbillon Chronograph. 2022. Vacheron-Constantin.com, https://www.vacheron-constantin.com/us/en/collections/traditionnelle/5100t-000r-b623.html
+
+	Watch Back.png
+		Constantin, Vacheron. Traditionnelle Tourbillon Chronograph. 2022. Vacheron-Constantin.com, https://www.vacheron-constantin.com/us/en/collections/traditionnelle/5100t-000r-b623.html
+
+	The Pragmatic Programmer.jpg
+		The Pragmatic Programmer. 2022. Google.com, https://www.google.com/books/edition/The_Pragmatic_Programmer/5wBQEp6ruIAC?hl=en&gbpv=0
+
+	Clean Code.jpg
+		Clean Code. 2022. Google.com, https://www.google.com/books/edition/Clean_Code/_i6bDeoCQzsC?hl=en&gbpv=1&printsec=frontcover
+
+	Craftsmanship Process.png
+		Korzynski, Brian. Craftsmanship Process. 2022. GitHub, URL.
+
+	working does not equal right.gif
+		Korzynski, Brian. Working does not equal right. 2022. LaTeX. https://latex.codecogs.com/eqneditor/editor.php
+
+	Complex.png
+		Korzynski, Brian. Complex. 2022. GitHub, URL.
+
+	Complicated.png
+		Li, Shaw. Complex Flows. 2022. SubStack.com, https://shawli.substack.com/p/reformatting-flow-diagrams-for-diagraming
+
+	2x4 Lego.jpg
+		Brick 2X4. 2022. Lego.com, https://www.lego.com/cdn/product-assets/element.img.lod5photo.192x192/4114319.jpg
+
+	1x8 Lego.jpg
+		Brick 1X8. 2022. Lego.com, https://www.lego.com/cdn/product-assets/element.img.lod5photo.192x192/300823.jpg
+
+	2x3 Lego.jpg
+		Brick 2X3. 2022. Lego.com, https://www.lego.com/cdn/product-assets/element.img.lod5photo.192x192/6366701.jpg
+
+	1x2 Lego.jpg
+		Brick 1X2. 2022. Lego.com, https://www.lego.com/cdn/product-assets/element.img.lod5photo.192x192/4121739.jpg
+
+	1x1 Lego.jpg
+		Brick 1X1. 2022. Lego.com, https://www.lego.com/cdn/product-assets/element.img.lod5photo.192x192/4211242.jpg
+
+	Lego Opera House.jpg
+		Sydney Opera House. 2022. Lego.com, https://www.lego.com/cdn/cs/set/assets/bltfa5439e6d37aa74e/10234.jpg
+
+	Lego Apartment.jpg
+		Lego Brick House. 2022. dreamstime.com, https://www.dreamstime.com/budapest-hungary-october-lego-house-made-classic-building-blocks-under-construction-lego-brick-house-image109669636
+
+	Testing Pyramid.png
+		Korzynski, Brian. Testing Pyramid. 2022. GitHub, URL.
+	

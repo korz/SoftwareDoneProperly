@@ -1,0 +1,49 @@
+Setup before Presentation
+VS
+Open VS project
+Expand Every project then collapse down to solution folders
+Expand 1-Initial Code
+Set SoftwareDoneProperly.Console as startup project
+DB
+Truncate Customers table
+Open query to SELECT * FROM Customer
+LinqPad
+Open Linq Pad tabs in this order:
+Prototyping
+CreateCsvFile
+CreateDatabase
+
+Katas
+EvenFibonacciNumbers
+MinByTests
+FizzBuzz
+
+Taking problems out of context and then putting them back in context, makes them a lot easier to test. Think of Linq statements. I can now test with a simple list of integers instead of some complex object graph. (MaxBy, MinBy, SkipConditionally)
+
+
+
+1-InitialCode - is the spaghetti code we need to refactor
+ctor
+1. Talk about the buried intent behind the action in the constructor
+2. Talk about a quick possible refactoring
+
+Main()
+1. Talk about spaghetti code, and the fact that is has 179 lines of code
+2. Walk through what it is trying to do, then summarize, mention mixing concerns
+3. Show CustomersToImport.csv and blank db table
+4. Make sure to mention that this code isn't testable
+5. Mention that the first step to refactoring is isolation
+
+
+
+2-FirstRefactor - move things to separate files (only isolation)
+3-SecondRefactor - move separate files to new projects (code and NuGet isolation)
+4-ThirdRefactor - actually improve the codebase
+Move all the logic from the Console app and put it in the Domain layer, so that the console is only a pass through with composition
+
+Mention that everything has it's place and once your used to the pattern you know exactly where things should go
+
+3-SecondRefactor
+SoftwareDoneProperly.SecondRefactor.Console
+SoftwareDoneProperly.SecondRefactor.Final.Console
+
