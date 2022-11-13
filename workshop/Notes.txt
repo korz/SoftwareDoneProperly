@@ -156,3 +156,10 @@ exercise -
 
 
 we can expect people to have Visual Studio installed
+
+2 Lesson PDF's
+	1 for the exercise
+	1 for the solution and remarks
+
+	use the same format at Little Rock, just separate out
+
