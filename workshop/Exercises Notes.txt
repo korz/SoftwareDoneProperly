@@ -4,6 +4,7 @@ exercises
 	* Our work on the exercises takes place as a tech debt cleanup. Management has granted us the rare reprieve to give us a chance to refactor existing code.
 	* Pure MVP
 		* Send an sms in some way to phone with link to survey.
+			* Should send the sms on a regular basis which is hardcoded/configured statically.
 		* Record survey input as discrete row.
 		* What does survey look like? Hardcoded question(s) for now.
 			* 2 questions and a submit button.
