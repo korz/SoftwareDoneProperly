@@ -1,0 +1,49 @@
+exercises
+* Exercise "Story":
+	* Everyone has inherited some code which isn't up to the standards we'd like. The exercises will walk us through changing the code into something more up to snuff.
+	* Our work on the exercises takes place as a tech debt cleanup. Management has granted us the rare reprieve to give us a chance to refactor existing code.
+	* Pure MVP
+		* Send an sms in some way to phone with link to survey.
+		* Record survey input as discrete row.
+		* What does survey look like? Hardcoded question(s) for now.
+			* 2 questions and a submit button.
+				* How's your day going?
+					* Input is 1 to 10 (1="Negative" 10="Positive")
+				* Are there any comments you want to add?
+					* Text paragraph input allowing text input.
+				* Submit button ends survey.
+		* Who does it send links to? Hardcoded phone number/contact for now.
+				* Which phone networks to support?
+					* AT&T
+
+* Craftsmanship
+	* Code
+		* Start: A single MVC project in a solution with somewhat convoluted code. It should be something someone implemented an MVP on in a relaxed/easy as possible manner. 
+		* End: Code doesn't change. Come up with a list of possible refactorings or improvements to implement.
+	* Outline: Go over code for exercise one and make notes on possible improvements. Start caring about quality and slowing down to ask "why are we doing it this way?".
+	* Discussion: Talk over ideas for improvement and plan through the refactoring that could take place.
+		* Questions to ask/discuss
+			* What do you notice about the code before making any changes to it?
+			* What can you tell about its author(s)?
+			* What do you like about it? What don't you like about it? Why?
+			* What standards does this code follow? Is it consistent? (Naming, typing, conventions)
+			* Are there improvements we can make in _how_ something is implemented? (Consider design patterns, but we won't go too deep into that in ex. 1)
+	* Remarks: Let's make the starting/inherited code something which looks plausible as something that you could inherit "in the field". This way we can highlight particular coding patterns or pitfalls when we start discussing possible changes.
+
+* Architecture
+	* Code
+		* Start: Same as ex. 1
+		* End: Implemented architectural and craftsmanship practices into the code. Focus on one or two big architectural patterns to ensure time, but otherwise dive into more if time allows.
+	* Outline: Go over code and implement architectural and craftsmanship improvements. Focus on architectural stuff.
+	* Discussion: Go over the improvements people have implemented and discuss why/how/if they're appropriate.
+
+* Testing
+	* Code
+		* Start: Ideally, people can take their own output of ex. 2 and use it. Otherwise, they use the template we provide for starting ex. 2.
+		* End: A class that was otherwise untested or had issues that weren't caught in unit tests to now have relatively complete unit tests and then demonstrate breaking the implementation to see which tests throw up.
+	* Outline:
+	* Discussion:
+
+* Refactoring + Reusability
+	* Outline:
+	* Discussion:
