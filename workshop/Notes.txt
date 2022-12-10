@@ -163,3 +163,23 @@ we can expect people to have Visual Studio installed
 
 	use the same format at Little Rock, just separate out
 
+
+
+
+Chrome
+C:\Users\korzy\Desktop\Leather
+C:\Users\korzy\OneDrive\Engraving\Leatherwork\Patterns & Templates\Codemash Messenger Bag Acrylic Template
+C:\Code\Talks\SoftwareDoneProperly\workshop
+C:\Users\korzy\OneDrive\Engraving\Leatherwork\Patterns & Templates\Tony Allen Bernier Practice Tooling
+C:\Users\korzy\OneDrive\Engraving\Leatherwork\Patterns & Templates\Leather Belt Keychain Clip
+C:\Users\korzy\OneDrive\Engraving\Leatherwork\Patterns & Templates\Welted Business Card Case
+C:\Users\korzy\OneDrive\Engraving\Leatherwork
+CSharp.TestEmail.linq
+WeekDateCounter.linq
+C:\Code\Talks\SoftwareDoneProperly-MiddleManagement\MiddleManagement\linqpad\CleanupFilesBeforeZip.linq
+
+Christmas 2022
+Leather Projects
+Saxenda 
+Will Tent Analysis
+DDR Parts

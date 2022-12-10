@@ -17,7 +17,7 @@ exercises
 				* Which phone networks to support?
 					* AT&T
 
-* Craftsmanship
+* Craftsmanship Exercise 1
 	* Code
 		* Start: A single MVC project in a solution with somewhat convoluted code. It should be something someone implemented an MVP on in a relaxed/easy as possible manner. 
 		* End: Code doesn't change. Come up with a list of possible refactorings or improvements to implement.
@@ -31,12 +31,47 @@ exercises
 			* Are there improvements we can make in _how_ something is implemented? (Consider design patterns, but we won't go too deep into that in ex. 1)
 	* Remarks: Let's make the starting/inherited code something which looks plausible as something that you could inherit "in the field". This way we can highlight particular coding patterns or pitfalls when we start discussing possible changes.
 
-* Architecture
+	Answer Key:
+		* What do you notice about the code before making any changes to it?
+			There is some duplication, particularily around the emailing logic. This means that there are several different methods that do the same thing and would need to be updated in case something changes. Also, there are twice as many tests that I now need to write in order to cover this logic.
+
+			Some things are hardcoded instead of being specified in configuration
+
+		* What can you tell about its author(s)?
+			Looks like 2 different people wrote the code, since there are different styles
+
+		* What do you like about it? What don't you like about it? Why?
+			Gut check not popularity thing, not personal preferences or is there something with it that would prevent it from functioning correctly.
+
+			For the most part things seem to be separated out. For example we have a separate service for sending the surveys on a regular schedule.
+
+			I don't like how to many things are hardcoded. e.g. SMTP settings in the emailing code	
+
+			I like the Explicit instead of implicit
+				I like that we specify the HttpGet on the Index() method. Even though this isn't required like the [HttpPost] overload is, but it makes the code more readable, and helps to prevent unintended actions. This especially comes into play with things like DI/IoC, which we will talk more about later on. I always try to be explicit instead of implicit except for using type inference, because it makes the code more readable.
+					[HttpGet]
+					public IActionResult Index() {}
+
+		* What standards does this code follow? Is it consistent? (Naming, typing, conventions)
+			Some of this code tends to go against Industry best practices, and isn't consistent. Particularly within the HomeController. We use this. everywhere, when not needed. We are explicitly specifying types instead of infering them. We are going against the standard naming conventions for example using Logging instead of _logging for our private readonly field. The standard states that when the type is obvious by looking at the assignment of the variable, we should use var instead of the explicit type.
+
+		* Are there improvements we can make in _how_ something is implemented? (Consider design patterns, but we won't go too deep into that in ex. 1)
+			Consolidate the duplicate emailing code (RegularSurveySenderService.RunTimerAsync() and HomeController.SendSurveySms()) and change both places to use the same code. Doing so in the RegularSurveySenderService class will ensure that we are following the Single Responsibility Principle, since the only responsibility is orchestrating that sending of surveys.
+
+			Add unit/integration tests around the emailing code.
+
+			Move the remaining hardcoded configurations to the config files.
+
+			Cleanup the code so that only one code standard is being followed. Should be in line with the industry best practices (e.g. what Visual Studio or ReSharper is telling you).
+
+* Architecture Exercise 2
 	* Code
 		* Start: Same as ex. 1
 		* End: Implemented architectural and craftsmanship practices into the code. Focus on one or two big architectural patterns to ensure time, but otherwise dive into more if time allows.
 	* Outline: Go over code and implement architectural and craftsmanship improvements. Focus on architectural stuff.
 	* Discussion: Go over the improvements people have implemented and discuss why/how/if they're appropriate.
+
+	Answer Key: see solution zip and walk through solution
 
 * Testing
 	* Code
@@ -44,6 +79,8 @@ exercises
 		* End: A class that was otherwise untested or had issues that weren't caught in unit tests to now have relatively complete unit tests and then demonstrate breaking the implementation to see which tests throw up.
 	* Outline:
 	* Discussion:
+
+	Answer Key: see solution zip and walk through solution
 
 * Refactoring + Reusability
 	* Outline:
