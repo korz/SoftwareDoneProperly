@@ -85,3 +85,27 @@ exercises
 * Refactoring + Reusability
 	* Outline:
 	* Discussion:
+
+
+Hussein will do 2 and 3
+
+I'll do the tests for 4, and move exercise 2 answer key to exercise 4 answer key
+
+
+
+Software Done Properly Workshop Prerequisites:
+	Must have .NET installed (.NET 6 and .NET 7 are both acceptable)
+		Cross-platform downloads available at: https://dotnet.microsoft.com/en-us/download
+	Must have an IDE or editor installed for usage with C#/.NET
+		Depending on OS, some options are:
+			Visual Studio
+			Visual Studio Code
+			Visual Studio for Mac
+			JetBrains Rider
+		Some links are provided on the .NET download page for the Visual Studio family of editors
+
+	Optionally be familiar with C#, although the majority of topics are universal and not language specific.
+
+	The code samples will need to be downloaded from our GitHub repository located at https://github.com/korz/SoftwareDoneProperly/. We will also have this preloaded on several thumb drives, in case anyone needs.
+
+	Note: we will add this to the README of our repository as well.
