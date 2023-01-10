@@ -1,0 +1,111 @@
+exercises
+* Exercise "Story":
+	* Everyone has inherited some code which isn't up to the standards we'd like. The exercises will walk us through changing the code into something more up to snuff.
+	* Our work on the exercises takes place as a tech debt cleanup. Management has granted us the rare reprieve to give us a chance to refactor existing code.
+	* Pure MVP
+		* Send an sms in some way to phone with link to survey.
+			* Should send the sms on a regular basis which is hardcoded/configured statically.
+		* Record survey input as discrete row.
+		* What does survey look like? Hardcoded question(s) for now.
+			* 2 questions and a submit button.
+				* How's your day going?
+					* Input is 1 to 10 (1="Negative" 10="Positive")
+				* Are there any comments you want to add?
+					* Text paragraph input allowing text input.
+				* Submit button ends survey.
+		* Who does it send links to? Hardcoded phone number/contact for now.
+				* Which phone networks to support?
+					* AT&T
+
+* Craftsmanship Exercise 1
+	* Code
+		* Start: A single MVC project in a solution with somewhat convoluted code. It should be something someone implemented an MVP on in a relaxed/easy as possible manner. 
+		* End: Code doesn't change. Come up with a list of possible refactorings or improvements to implement.
+	* Outline: Go over code for exercise one and make notes on possible improvements. Start caring about quality and slowing down to ask "why are we doing it this way?".
+	* Discussion: Talk over ideas for improvement and plan through the refactoring that could take place.
+		* Questions to ask/discuss
+			* What do you notice about the code before making any changes to it?
+			* What can you tell about its author(s)?
+			* What do you like about it? What don't you like about it? Why?
+			* What standards does this code follow? Is it consistent? (Naming, typing, conventions)
+			* Are there improvements we can make in _how_ something is implemented? (Consider design patterns, but we won't go too deep into that in ex. 1)
+	* Remarks: Let's make the starting/inherited code something which looks plausible as something that you could inherit "in the field". This way we can highlight particular coding patterns or pitfalls when we start discussing possible changes.
+
+	Answer Key:
+		* What do you notice about the code before making any changes to it?
+			There is some duplication, particularily around the emailing logic. This means that there are several different methods that do the same thing and would need to be updated in case something changes. Also, there are twice as many tests that I now need to write in order to cover this logic.
+
+			Some things are hardcoded instead of being specified in configuration
+
+		* What can you tell about its author(s)?
+			Looks like 2 different people wrote the code, since there are different styles
+
+		* What do you like about it? What don't you like about it? Why?
+			Gut check not popularity thing, not personal preferences or is there something with it that would prevent it from functioning correctly.
+
+			For the most part things seem to be separated out. For example we have a separate service for sending the surveys on a regular schedule.
+
+			I don't like how to many things are hardcoded. e.g. SMTP settings in the emailing code	
+
+			I like the Explicit instead of implicit
+				I like that we specify the HttpGet on the Index() method. Even though this isn't required like the [HttpPost] overload is, but it makes the code more readable, and helps to prevent unintended actions. This especially comes into play with things like DI/IoC, which we will talk more about later on. I always try to be explicit instead of implicit except for using type inference, because it makes the code more readable.
+					[HttpGet]
+					public IActionResult Index() {}
+
+		* What standards does this code follow? Is it consistent? (Naming, typing, conventions)
+			Some of this code tends to go against Industry best practices, and isn't consistent. Particularly within the HomeController. We use this. everywhere, when not needed. We are explicitly specifying types instead of infering them. We are going against the standard naming conventions for example using Logging instead of _logging for our private readonly field. The standard states that when the type is obvious by looking at the assignment of the variable, we should use var instead of the explicit type.
+
+		* Are there improvements we can make in _how_ something is implemented? (Consider design patterns, but we won't go too deep into that in ex. 1)
+			Consolidate the duplicate emailing code (RegularSurveySenderService.RunTimerAsync() and HomeController.SendSurveySms()) and change both places to use the same code. Doing so in the RegularSurveySenderService class will ensure that we are following the Single Responsibility Principle, since the only responsibility is orchestrating that sending of surveys.
+
+			Add unit/integration tests around the emailing code.
+
+			Move the remaining hardcoded configurations to the config files.
+
+			Cleanup the code so that only one code standard is being followed. Should be in line with the industry best practices (e.g. what Visual Studio or ReSharper is telling you).
+
+* Architecture Exercise 2
+	* Code
+		* Start: Same as ex. 1
+		* End: Implemented architectural and craftsmanship practices into the code. Focus on one or two big architectural patterns to ensure time, but otherwise dive into more if time allows.
+	* Outline: Go over code and implement architectural and craftsmanship improvements. Focus on architectural stuff.
+	* Discussion: Go over the improvements people have implemented and discuss why/how/if they're appropriate.
+
+	Answer Key: see solution zip and walk through solution
+
+* Testing
+	* Code
+		* Start: Ideally, people can take their own output of ex. 2 and use it. Otherwise, they use the template we provide for starting ex. 2.
+		* End: A class that was otherwise untested or had issues that weren't caught in unit tests to now have relatively complete unit tests and then demonstrate breaking the implementation to see which tests throw up.
+	* Outline:
+	* Discussion:
+
+	Answer Key: see solution zip and walk through solution
+
+* Refactoring + Reusability
+	* Outline:
+	* Discussion:
+
+
+Hussein will do 2 and 3
+
+I'll do the tests for 4, and move exercise 2 answer key to exercise 4 answer key
+
+
+
+Software Done Properly Workshop Prerequisites:
+	Must have .NET installed (.NET 6 and .NET 7 are both acceptable)
+		Cross-platform downloads available at: https://dotnet.microsoft.com/en-us/download
+	Must have an IDE or editor installed for usage with C#/.NET
+		Depending on OS, some options are:
+			Visual Studio
+			Visual Studio Code
+			Visual Studio for Mac
+			JetBrains Rider
+		Some links are provided on the .NET download page for the Visual Studio family of editors
+
+	Optionally be familiar with C#, although the majority of topics are universal and not language specific.
+
+	The code samples will need to be downloaded from our GitHub repository located at https://github.com/korz/SoftwareDoneProperly/. We will also have this preloaded on several thumb drives, in case anyone needs.
+
+	Note: we will add this to the README of our repository as well.
